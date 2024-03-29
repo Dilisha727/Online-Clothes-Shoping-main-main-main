@@ -14,7 +14,7 @@ struct Welcom_page: View {
                 .resizable()
                 .scaledToFill()
                 .edgesIgnoringSafeArea(.all)
-
+            
             VStack{
                 Spacer()
                 
@@ -23,18 +23,23 @@ struct Welcom_page: View {
                     .scaledToFit()
                     .frame(width: 60, height: 60)
                     .padding(.bottom, 8)
-                    
+                
                 
                 Text( "Happy Shopping")
+                    .font(.title)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .bold()
                     .font(Font.custom("Lora", size: 20))
                     .multilineTextAlignment(.center)
-                    
-                Text( "it's time to expirience over thousands of stylish producta ib Genteel")
+                    .padding(/*@START_MENU_TOKEN@*/[.leading, .bottom, .trailing], -1.0/*@END_MENU_TOKEN@*/)
+                
+                
+                Text( "it's time \n to expirience over thousands of stylish producta ib Genteel")
                     .foregroundColor(.white.opacity(0.7))
                     .multilineTextAlignment(.center)
-                    .padding(.bottom, 30)
+                    .lineLimit(3)
+                    .padding([.leading, .bottom, .trailing], 16.0)
                 
                 
                 NavigationLink {
@@ -42,26 +47,28 @@ struct Welcom_page: View {
                 } label: {
                     RoundButton(title: "Get Started") {
                     }
+                    
                 }
-                Spacer()
-                    .frame(height: 100)
-                }
+                .padding(.bottom, 50.0)
+                .frame(width: 360.0, height: 100.0)
                 
             }
+            .padding(.top, 7.0)
             .navigationTitle("")
             .navigationBarBackButtonHidden(true)
             .navigationBarHidden(true)
             .ignoresSafeArea()
-    }
-    
-}
-
-struct WelcomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        NavigationView {
-            Welcom_page()
         }
         
+    }
+    
+    struct WelcomeView_Previews: PreviewProvider {
+        static var previews: some View {
+            
+            NavigationView {
+                Welcom_page()
+            }
+            
+        }
     }
 }

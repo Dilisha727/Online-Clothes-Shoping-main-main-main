@@ -7,9 +7,9 @@ class NavigationViewModel: ObservableObject {
     init() {
         let homeView = AnyView(Home_page())
         let categoryView = AnyView(Home_page()) // Replace with your CategoryView
-        let chatView = AnyView(Chat()) // Replace with your ChatView
+        let chatView = AnyView(Welcom_page()) // Replace with your ChatView
         let cartView = AnyView(CartView()) // Replace with your CartView
-        let profileView = AnyView(Profile_Page()) // Replace with your ProfileView
+        let profileView = AnyView(Profile_page()) // Replace with your ProfileView
         
         self.navigationItems = [
             NavigationItem(title: "Home", imageName: "house.fill", destination: homeView),

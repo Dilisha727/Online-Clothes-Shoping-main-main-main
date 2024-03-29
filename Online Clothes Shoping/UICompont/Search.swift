@@ -1,6 +1,13 @@
+//
+//  Serachbar.swift
+//  Online Clothes Shoping
+//
+//  Created by Dilisha priyashan on 2024-03-29.
+//
+
 import SwiftUI
 
-struct Chat: View {
+struct Search: View {
     @Binding var searchText: String
     
     var body: some View {
@@ -23,8 +30,8 @@ struct Chat: View {
     }
 }
 
-struct Chat_Previews: PreviewProvider {
+struct Search_Previews: PreviewProvider {
     static var previews: some View {
-        Chat(searchText: .constant(""))
+        Search(searchText: .constant(""))
     }
 }

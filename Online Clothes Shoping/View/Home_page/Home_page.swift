@@ -11,12 +11,16 @@ struct Home_page: View {
     @StateObject var cartManager = CartManager()
     var columns = [GridItem(.adaptive(minimum: 160), spacing: 20)]
     @StateObject var navigationViewModel = NavigationViewModel() // Create instance of NavigationViewModel
+    @State private var searchText: String = "" // Add searchText state variable
+            
         
      
     var body: some View {
         NavigationView {
             VStack {
-            
+                Search(searchText: $searchText) // Pass searchText binding to Search
+               
+                                
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 20) {
                         ForEach(productList, id: \.id) { product in
@@ -24,11 +28,14 @@ struct Home_page: View {
                                 .environmentObject(cartManager)
                         }
                     }
+                    
+                    Text("COLLECTION")
                     .padding()
                 }
+                
                 BottomNavBarViewModel(viewModel: navigationViewModel)
                                     .padding(.bottom, 1) // Optional padding
-                                
+                  
             }
             .navigationTitle(Text("Shopping Mall"))
             .toolbar {
@@ -37,8 +44,10 @@ struct Home_page: View {
                         .environmentObject(cartManager)
                 } label: {
                     CartButton(numberOfProducts: cartManager.products.count)
+                    
                 }
             }
+            
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
